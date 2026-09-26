@@ -545,7 +545,7 @@ svg {
     position: relative;
 }
 
-.metric-item:not(:last-child)::after {
+.metric-item:not(:last-of-type)::after {
     content: '';
     position: absolute;
     right: -1rem;
@@ -569,6 +569,14 @@ svg {
     font-weight: 700;
     color: var(--text-primary);
     margin-bottom: 0.2rem;
+}
+
+.metrics-asof {
+    grid-column: 1 / -1;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-light);
+    font-size: 0.8rem;
+    color: var(--text-muted);
 }
 
 .metric-sub {
@@ -2023,7 +2031,7 @@ footer {
     .metrics-banner {
         grid-template-columns: 1fr 1fr;
     }
-    .metric-item:not(:last-child)::after {
+    .metric-item:not(:last-of-type)::after {
         display: none;
     }
     .deepdive-grid, .sim-metrics-grid {
