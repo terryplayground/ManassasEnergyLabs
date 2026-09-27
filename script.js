@@ -356,32 +356,33 @@ function initScrollProgressAndSpy() {
    5. Focus Areas: Interactive Deep-Dive Explorer
    ========================================================================== */
 const SOURCES = {
-    woodmac: { label: 'Wood Mackenzie, transformer lead times (2025)', url: 'https://www.woodmac.com/news/opinion/supply-shortages-and-an-inflexible-market-give-rise-to-high-power-transformer-lead-times/' },
+    niac: { label: 'National Infrastructure Advisory Council, Power Transformer Shortage report (Jun 2024)', url: 'https://www.cisa.gov/sites/default/files/2024-09/NIAC_Addressing%20the%20Critical%20Shortage%20of%20Power%20Transformers%20to%20Ensure%20Reliability%20of%20the%20U.S.%20Grid_Report_06112024_508c_pdf_0.pdf' },
     nercLoadLoss: { label: 'NERC, Incident Review: Voltage-Sensitive Load Reductions (2025)', url: 'https://www.nerc.com/globalassets/our-work/reports/event-reports/incident_review_large_load_loss.pdf' },
     fercColocation: { label: 'FERC, PJM co-location order fact sheet (Dec 2025)', url: 'https://www.ferc.gov/news-events/news/fact-sheet-ferc-directs-nations-largest-grid-operator-create-new-rules-embrace' },
-    fercLargeLoad: { label: 'McGuireWoods, FERC large-load show-cause orders (Jun 2026)', url: 'https://www.mcguirewoods.com/client-resources/alerts/2026/6/ferc-issues-section-206-show-cause-orders-directing-all-six-rtos-isos-to-justify-or-reform-large-load-integration-rules/' },
-    ercotQueue: { label: 'Utility Dive, ERCOT 438 GW large-load queue (Jun 2026)', url: 'https://www.utilitydive.com/news/texas-facing-438-gw-queue-approves-initial-large-load-interconnection-pro/823367/' },
-    uptime: { label: 'Uptime Institute, Global Data Center Survey (2025)', url: 'https://intelligence.uptimeinstitute.com/resource/uptime-institute-global-data-center-survey-2025' },
-    googlePue: { label: 'Google, data center PUE', url: 'https://datacenters.google/efficiency/' },
+    fercLargeLoad: { label: 'FERC, large-load show cause orders to six RTOs/ISOs (Jun 2026)', url: 'https://www.ferc.gov/news-events/news/ferc-launches-aggressive-targeted-action-speed-large-load-integration' },
+    ercotQueue: { label: 'ERCOT, Large Load update to the Texas House State Affairs Committee (Apr 2026)', url: 'https://www.ercot.com/files/docs/2026/04/09/ERCOTLargeLoadUpdate-April9HouseStateAffairsHearing.pdf' },
+    lbnlDataCenters: { label: 'LBNL, 2024 United States Data Center Energy Usage Report', url: 'https://eta-publications.lbl.gov/sites/default/files/2024-12/lbnl-2024-united-states-data-center-energy-usage-report_1.pdf' },
     lbnlQueue: { label: 'LBNL, Queued Up: 2026 Edition', url: 'https://emp.lbl.gov/publications/queued-2026-edition-characteristics' },
-    reconductoring: { label: 'UC Berkeley & GridLab, 2035 Report: Reconductoring (2024)', url: 'https://www.2035report.com/reconductoring/' },
+    reconductoring: { label: 'Chojkiewicz et al., PNAS (2024), advanced conductors in existing right-of-way', url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC11459140/' },
     elliott: { label: 'FERC–NERC, Winter Storm Elliott report', url: 'https://www.ferc.gov/news-events/news/ferc-nerc-release-final-report-lessons-winter-storm-elliott' },
-    part53: { label: 'NRC, Part 53 final rule', url: 'https://www.nrc.gov/reactors/new-reactors/advanced/modernizing/rulemaking/part-53' },
-    opgSmr: { label: 'OPG, Darlington SMR construction', url: 'https://www.opg.com/news-resources/newsroom/our-stories/story/opg-marks-new-milestones-in-construction-of-g7s-first-small-modular-reactor/' },
+    part53: { label: 'NRC, Part 53 final rule', url: 'https://www.nrc.gov/facilities-safety/new-reactors/advanced-reactors/modernizing-how-we-regulate/rulemaking/part-53-risk-informed-technology-inclusive-regulatory-framework-for-advanced-reactors' },
+    cnscDarlington: { label: 'Canadian Nuclear Safety Commission, Darlington New Nuclear Project', url: 'https://www.cnsc-ccsn.gc.ca/eng/reactors/new-reactor-power-plant-projects/new-reactor-power-plant-facilities/darlington-new-nuclear-project/' },
     eiaCapacityFactor: { label: 'EIA, capacity factors for non-fossil generators', url: 'https://www.eia.gov/electricity/monthly/epm_table_grapher.php?t=epmt_6_07_b' },
     sepulveda: { label: 'Sepulveda et al., Nature Energy (2021)', url: 'https://www.nature.com/articles/s41560-021-00796-8' },
-    pjmBra: { label: 'PJM, 2028/29 Base Residual Auction (Jul 2026)', url: 'https://insidelines.pjm.com/pjm-capacity-auction-procures-138318-mw-of-generation-resources-as-work-continues-to-address-growing-electricity-demand/' },
-    congestion: { label: 'Grid Strategies, Transmission Congestion for 2024', url: 'https://gridstrategiesllc.com/wp-content/uploads/GS_Transmission-Congestion-for-2024.pdf' },
+    pjmBra: { label: 'PJM, 2028/2029 Base Residual Auction Report (Jul 2026)', url: 'https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2028-2029/2028-2029-bra-results-report.pdf' },
+    pjmImm: { label: 'PJM Independent Market Monitor, 2025 State of the Market Report', url: 'https://www.monitoringanalytics.com/reports/PJM_State_of_the_Market/2025.shtml' },
     miso: { label: 'MISO, 2026/27 Planning Resource Auction', url: 'https://www.misoenergy.org/meet-miso/media-center/2026---news-releases/misos-planning-resource-auction-shows-sufficient-capacity-for-coming-year' },
-    duke: { label: 'Utility Dive, Duke "Rethinking Load Growth" (2025)', url: 'https://www.utilitydive.com/news/us-grid-headroom-flexible-load-data-center-ai-ev-duke-report/739767/' },
-    sb6: { label: 'McGuireWoods, Texas SB 6 summary (2025)', url: 'https://www.mcguirewoods.com/client-resources/alerts/2025/7/texas-senate-bill-6-significantly-expands-regulatory-oversight-over-large-loads-in-ercot/' },
-    susquehanna: { label: 'Utility Dive, FERC rejects Susquehanna co-location agreement (Nov 2024)', url: 'https://www.utilitydive.com/news/ferc-interconnection-isa-talen-amazon-data-center-susquehanna-exelon/731841/' },
-    gdc17: { label: 'NRC, 10 CFR 50 Appendix A (General Design Criterion 17)', url: 'https://www.nrc.gov/reading-rm/doc-collections/cfr/part050/part050-appa.html' },
+    duke: { label: 'Norris et al., Duke Nicholas Institute, Rethinking Load Growth (2025)', url: 'https://nicholasinstitute.duke.edu/publications/rethinking-load-growth' },
+    sb6: { label: 'Texas Legislature, SB 6 enrolled text (89th Legislature, 2025)', url: 'https://capitol.texas.gov/tlodocs/89R/billtext/html/SB00006F.htm' },
+    susquehanna: { label: 'FERC, order rejecting the Susquehanna ISA amendment, 189 FERC ¶ 61,078 (Nov 2024)', url: 'https://www.ferc.gov/sites/default/files/2024-11/20241101-3061_ER24-2172-000.pdf' },
+    gdc17: { label: 'eCFR, 10 CFR Part 50 Appendix A (General Design Criterion 17)', url: 'https://www.ecfr.gov/current/title-10/chapter-I/part-50/appendix-Appendix%20A%20to%20Part%2050' },
     rtcb: { label: 'ERCOT, RTC+B go-live (Dec 2025)', url: 'https://www.ercot.com/news/release/12052025-ercot-goes-live' },
     sb100: { label: 'California Energy Commission, SB 100', url: 'https://www.energy.ca.gov/sb100' },
     georgiaPsc: { label: 'Georgia PSC, large-load rule (Jan 2025)', url: 'https://psc.ga.gov/site/assets/files/8617/media_advisory_data_centers_rule_1-23-2025.pdf' },
-    pjmPlc: { label: 'BGE, PJM peak load contribution (5CP)', url: 'https://supplier.bge.com/electric/load/plcs.asp' },
-    ercot4cp: { label: 'ERCOT, Four Coincident Peak calculations', url: 'https://www.ercot.com/mktinfo/data_agg/4cp' }
+    pjmPlc: { label: 'PJM Manual 19: Load Forecasting and Analysis (5CP)', url: 'https://www.pjm.com/~/media/documents/manuals/m19.ashx' },
+    ercot4cp: { label: 'ERCOT, Four Coincident Peak calculations', url: 'https://www.ercot.com/mktinfo/data_agg/4cp' },
+    misoImm: { label: 'MISO Independent Market Monitor, 2025 State of the Market (Jul 2026)', url: 'https://cdn.misoenergy.org/20260701%20Markets%20Committee%20of%20the%20BOD%20Item%2004%20State%20of%20the%20Market%20Presentation765606.pdf' },
+    doeLdes: { label: 'U.S. DOE, Storage Innovations 2030 (Long-Duration Storage Shot)', url: 'https://www.energy.gov/oe/storage-innovations-2030' }
 };
 
 const frontierData = {
@@ -390,16 +391,16 @@ const frontierData = {
         pill: 'Large Loads',
         summary: 'AI training clusters now draw 100 kW or more per rack, and campuses are being proposed at the gigawatt scale. The binding constraints are rarely generation alone. They are transmission capacity at the point of interconnection, long-lead equipment, and how grid operators handle loads that behave very differently from traditional customers.',
         points: [
-            'Long-lead equipment: large power transformers average ~128 weeks and generator step-up units ~144 weeks, with some orders quoted at four years.',
+            'Long-lead equipment: power transformer lead times rose from about 50 weeks in 2021 to about 120 weeks in 2024, and large substation and generator step-up units take 80–210 weeks.',
             'Ride-through: in July 2024, a 230 kV fault in Northern Virginia caused ~1,500 MW of data center load to switch to backup power at once, an event grid operators had not planned for.',
-            'Co-location rules: FERC directed PJM in December 2025 to create new firm and non-firm transmission services for load co-located with generation. Its June 2026 show-cause orders extend large-load reforms to all six FERC-jurisdictional RTOs.',
+            'Co-location rules: FERC directed PJM in December 2025 to create new firm and non-firm transmission services for load co-located with generation. Its June 2026 show cause orders require all six FERC-jurisdictional RTOs to justify or reform how large loads connect, pay for upgrades, and take transmission service.',
             'Water: direct-to-chip liquid cooling captures heat at the chip, but water use depends on how heat is rejected. Evaporative towers use water; dry coolers use more electricity on hot days.'
         ],
         metrics: [
-            '438 GW: large-load requests in ERCOT\'s queue as of June 2026, nearly 90% data centers, up from 63 GW at the end of 2024.',
-            '1.54: global average data center PUE (Uptime Institute, 2025). Hyperscale fleets report ~1.1.'
+            '~410 GW: large-load requests ERCOT was tracking in April 2026, about 87% of them data centers.',
+            '176 TWh: U.S. data center electricity use in 2023 (4.4% of the national total), projected at 325–580 TWh by 2028. Average PUE fell from 1.6 in 2014 to 1.4 in 2023.'
         ],
-        sources: ['woodmac', 'nercLoadLoss', 'fercColocation', 'fercLargeLoad', 'ercotQueue', 'uptime', 'googlePue']
+        sources: ['niac', 'nercLoadLoss', 'fercColocation', 'fercLargeLoad', 'ercotQueue', 'lbnlDataCenters']
     },
     'grid-queues': {
         title: 'Interconnection Queues & Transmission',
@@ -407,8 +408,8 @@ const frontierData = {
         summary: 'About 2,000 GW of generation and storage sits in U.S. interconnection queues, and the typical project now waits more than five years to reach operation. Large loads go through a separate process that, until recently, was far less standardized.',
         points: [
             'FERC Order 2023 replaced serial, first-come-first-served generator studies with "first-ready, first-served" cluster studies and stricter readiness requirements.',
-            'Large-load interconnection has mostly been a utility and state process. FERC\'s June 2026 show-cause orders (loads above 50 MW at above 69 kV) require RTOs to justify or reform how those loads connect and pay for upgrades.',
-            'Reconductoring with advanced conductors can roughly double a line\'s thermal capacity within existing rights-of-way. Long lines limited by voltage or stability rather than heat gain less.',
+            'Large-load interconnection has mostly been a utility and state process. FERC\'s June 2026 show cause orders require all six RTOs to justify or reform how large loads connect, pay for upgrades, and take transmission service, including new services for flexible loads.',
+            'Reconductoring with advanced conductors can double a line\'s capacity within existing rights-of-way at less than half the cost per mile of new lines. Lines longer than about 50 miles are often limited by voltage or stability rather than heat, so they gain less.',
             'Ambient-adjusted ratings (FERC Order 881) and dynamic line ratings free up capacity on existing lines at far lower cost than new construction.'
         ],
         metrics: [
@@ -444,9 +445,9 @@ const frontierData = {
         ],
         metrics: [
             '>90%: U.S. nuclear capacity factor, versus roughly 25% for utility-scale solar and 35% for wind (EIA).',
-            'End of 2030: target in-service date for the first BWRX-300 at OPG\'s Darlington site, licensed for construction in April 2025.'
+            'April 2025: Canada\'s nuclear regulator licensed construction of a BWRX-300 SMR at Darlington, Ontario. The operating-licence application followed in March 2026.'
         ],
-        sources: ['susquehanna', 'fercColocation', 'gdc17', 'part53', 'opgSmr', 'eiaCapacityFactor']
+        sources: ['susquehanna', 'fercColocation', 'gdc17', 'part53', 'cnscDarlington', 'eiaCapacityFactor']
     },
     'storage-ldes': {
         title: 'Long-Duration Energy Storage',
@@ -461,7 +462,7 @@ const frontierData = {
             '≤ $20/kWh: energy-capacity capital cost at which LDES cuts total system cost by ≥10% in deeply decarbonized grids (Sepulveda et al., 2021).',
             '≤ $1/kWh: cost at which LDES could fully displace firm low-carbon generation in the same study. At realistic costs, LDES complements firm power rather than replacing it.'
         ],
-        sources: ['sepulveda'],
+        sources: ['doeLdes', 'sepulveda'],
         related: { label: 'Related project: Battery State-of-Charge Forecasting →', href: '#projects' }
     },
     'market-design': {
@@ -476,9 +477,9 @@ const frontierData = {
         ],
         metrics: [
             '$325/MW-day: PJM 2028/29 capacity price, or about $119,000 per MW-year.',
-            '$12B+: U.S. transmission congestion costs in 2024, the fourth straight year above $10B (Grid Strategies).'
+            '$3.2B: PJM congestion costs in 2025, up 81% from 2024. MISO\'s real-time congestion rose 23% to $2.2B.'
         ],
-        sources: ['pjmBra', 'rtcb', 'congestion'],
+        sources: ['pjmBra', 'rtcb', 'pjmImm', 'misoImm'],
         related: { label: 'Related project: Battery State-of-Charge Forecasting →', href: '#projects' }
     }
 };
@@ -582,7 +583,7 @@ const MARKETS = {
         capacityBasis: 'PJM 2028/29 auction',
         sources: ['pjmBra', 'fercColocation'],
         peakTiming: {
-            text: 'PJM sets each customer\'s capacity obligation for the following year from its load in the five summer peak hours (5CP).',
+            text: 'PJM identifies the five summer system peak hours (5CP), and utilities typically base each customer\'s capacity obligation for the following year on its load in those hours.',
             capacityAvoidable: true,
             sources: ['pjmPlc']
         },
@@ -606,10 +607,10 @@ const MARKETS = {
         capacityBasis: 'Transmission costs are allocated by 4CP instead',
         sources: ['sb6', 'ercotQueue'],
         peakTiming: {
-            text: 'ERCOT allocates transmission costs by 4CP: demand in the single 15-minute system peak of each month from June to September. Curtailing in those four intervals cuts the following year\'s transmission charges. Texas regulators must revise this method by the end of 2026 under SB 6.',
-            sources: ['ercot4cp']
+            text: 'ERCOT allocates transmission costs by 4CP: demand in the single 15-minute system peak of each month from June to September. Curtailing in those four intervals cuts the following year\'s transmission charges. SB 6 requires Texas regulators to evaluate 4CP and amend their transmission-cost rules by December 31, 2026.',
+            sources: ['ercot4cp', 'sb6']
         },
-        note: 'Transmission costs are allocated by 4CP: demand in the four monthly system-peak intervals from June to September. Curtailing in those intervals cuts transmission charges. Texas SB 6 (2025) lets ERCOT curtail loads of 75 MW or more in emergencies and requires them to disclose backup generation. The large-load queue stands at 438 GW.'
+        note: 'Transmission costs are allocated by 4CP: demand in the four monthly system-peak intervals from June to September. Curtailing in those intervals cuts transmission charges. Texas SB 6 (2025) requires loads of 75 MW or more to disclose on-site backup generation, which ERCOT can direct them to run, or to curtail, during emergencies. ERCOT was tracking about 410 GW of large-load requests in April 2026.'
     },
     CAISO: {
         name: 'CAISO',

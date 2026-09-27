@@ -142,19 +142,19 @@
             <!-- Sourced Context Metrics -->
             <div class="metrics-banner fade-in">
                 <div class="metric-item">
-                    <div class="metric-value">438 GW</div>
+                    <div class="metric-value">~410 GW</div>
                     <div class="metric-label">Large-load requests in ERCOT's queue</div>
-                    <div class="metric-sub">~90% data centers, up from 63 GW at end-2024. <a href="https://www.utilitydive.com/news/texas-facing-438-gw-queue-approves-initial-large-load-interconnection-pro/823367/" target="_blank" rel="noopener">Utility Dive, Jun 2026</a></div>
+                    <div class="metric-sub">About 87% are data centers. <a href="https://www.ercot.com/files/docs/2026/04/09/ERCOTLargeLoadUpdate-April9HouseStateAffairsHearing.pdf" target="_blank" rel="noopener">ERCOT, Apr 2026</a></div>
                 </div>
                 <div class="metric-item">
                     <div class="metric-value">$325</div>
                     <div class="metric-label">PJM capacity price, per MW-day</div>
-                    <div class="metric-sub">2028/29 auction, third in a row at the price cap. <a href="https://insidelines.pjm.com/pjm-capacity-auction-procures-138318-mw-of-generation-resources-as-work-continues-to-address-growing-electricity-demand/" target="_blank" rel="noopener">PJM, Jul 2026</a></div>
+                    <div class="metric-sub">2028/29 auction, third in a row at the price cap. <a href="https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2028-2029/2028-2029-bra-results-report.pdf" target="_blank" rel="noopener">PJM auction report, Jul 2026</a></div>
                 </div>
                 <div class="metric-item">
-                    <div class="metric-value">~2.5 yrs</div>
-                    <div class="metric-label">Lead time for power transformers</div>
-                    <div class="metric-sub">~128 weeks; ~144 weeks for generator step-ups. <a href="https://www.woodmac.com/news/opinion/supply-shortages-and-an-inflexible-market-give-rise-to-high-power-transformer-lead-times/" target="_blank" rel="noopener">Wood Mackenzie, Q2 2025</a></div>
+                    <div class="metric-value">~120 wks</div>
+                    <div class="metric-label">Average power transformer lead time</div>
+                    <div class="metric-sub">In 2024, up from ~50 weeks in 2021; large units take 80–210 weeks. <a href="https://www.cisa.gov/sites/default/files/2024-09/NIAC_Addressing%20the%20Critical%20Shortage%20of%20Power%20Transformers%20to%20Ensure%20Reliability%20of%20the%20U.S.%20Grid_Report_06112024_508c_pdf_0.pdf" target="_blank" rel="noopener">NIAC, Jun 2024</a></div>
                 </div>
                 <div class="metric-item">
                     <div class="metric-value">5+ yrs</div>
@@ -407,7 +407,7 @@
                         </div>
                         <div class="research-point">
                             <h3>Why It Matters</h3>
-                            <p>When a battery can't deliver, the operator must replace the energy or reserves at short notice, often from more expensive units, and the owner can lose payments. CAISO's market monitor reports battery reserve awards becoming undeliverable in real time for lack of charge, and ERCOT has tightened how it accounts for SOC.</p>
+                            <p>When a battery can't deliver, the operator must replace the energy or reserves at short notice, often from more expensive units, and the owner can lose payments. CAISO's market monitor reports battery reserve awards becoming undeliverable in real time for lack of charge. ERCOT notes that its day-ahead market clears without considering SOC, so a battery can be awarded more than it can deliver.</p>
                         </div>
                         <div class="research-point">
                             <h3>Our Approach</h3>
@@ -471,7 +471,7 @@
                 </div>
                 <div class="research-fact">
                     <div class="fact-value">5 min</div>
-                    <p>How often ERCOT's real-time market now accounts for battery SOC when awarding energy and reserves, since RTC+B went live in December 2025. <a href="https://gridbeyond.com/rtcb-is-coming-to-ercot/" target="_blank" rel="noopener">GridBeyond</a>, <a href="https://www.ercot.com/news/release/12052025-ercot-goes-live" target="_blank" rel="noopener">ERCOT</a></p>
+                    <p>How often ERCOT's real-time market now accounts for battery SOC when awarding energy and reserves, since RTC+B went live in December 2025. <a href="https://www.ercot.com/files/docs/2025/07/15/RTC-B-Battery-Overview.pdf" target="_blank" rel="noopener">ERCOT RTC+B overview</a>, <a href="https://www.ercot.com/news/release/12052025-ercot-goes-live" target="_blank" rel="noopener">ERCOT</a></p>
                 </div>
                 <div class="research-fact">
                     <div class="fact-value">$28M</div>
@@ -587,11 +587,11 @@
                     <details class="sim-assumptions">
                         <summary>Assumptions & sources</summary>
                         <ul>
-                            <li><strong>Grid capacity request</strong> = IT nameplate &times; design-day PUE. MVA assumes a 0.95 power factor. Design-day PUE values are our engineering assumptions; the global average PUE is 1.54 (<a href="https://intelligence.uptimeinstitute.com/resource/uptime-institute-global-data-center-survey-2025" target="_blank" rel="noopener">Uptime Institute, 2025</a>).</li>
+                            <li><strong>Grid capacity request</strong> = IT nameplate &times; design-day PUE. MVA assumes a 0.95 power factor. Design-day PUE values are our engineering assumptions. The U.S. average PUE was about 1.4 in 2023 and is projected at 1.15–1.35 by 2028 (<a href="https://eta-publications.lbl.gov/sites/default/files/2024-12/lbnl-2024-united-states-data-center-energy-usage-report_1.pdf" target="_blank" rel="noopener">LBNL, 2024</a>).</li>
                             <li><strong>Annual energy</strong> = IT nameplate &times; average utilization &times; annual-average PUE &times; 8,760 h. Home equivalence uses 10,380 kWh per U.S. residential customer per year (<a href="https://www.eia.gov/tools/faqs/faq.php?id=97&amp;t=3" target="_blank" rel="noopener">EIA, 2024</a>) and compares <em>energy</em>, not peak demand.</li>
-                            <li><strong>Capacity exposure</strong> = demand at system peak (IT nameplate &times; utilization &times; design-day PUE) &times; clearing price &times; 365. PJM: $325/MW-day, 2028/29 auction (<a href="https://insidelines.pjm.com/pjm-capacity-auction-procures-138318-mw-of-generation-resources-as-work-continues-to-address-growing-electricity-demand/" target="_blank" rel="noopener">PJM</a>). MISO: $126.19/MW-day, 2026/27 North/Central annualized (<a href="https://www.misoenergy.org/meet-miso/media-center/2026---news-releases/misos-planning-resource-auction-shows-sufficient-capacity-for-coming-year" target="_blank" rel="noopener">MISO</a>). Actual charges depend on peak-load contribution, reserve requirements, zonal scaling, and retail contract terms.</li>
-                            <li><strong>Flexibility</strong>: curtailment is a share of maximum annual consumption (grid capacity request &times; 8,760 h), the same definition used by Duke's <a href="https://www.utilitydive.com/news/us-grid-headroom-flexible-load-data-center-ai-ev-duke-report/739767/" target="_blank" rel="noopener">Rethinking Load Growth (2025)</a>.</li>
-                            <li><strong>Peak timing</strong>: PJM sets capacity obligations from load in the five summer coincident peak hours (5CP) (<a href="https://supplier.bge.com/electric/load/plcs.asp" target="_blank" rel="noopener">BGE</a>). ERCOT allocates transmission costs by 4CP (<a href="https://www.ercot.com/mktinfo/data_agg/4cp" target="_blank" rel="noopener">ERCOT</a>); Texas regulators must revise that method by the end of 2026 under SB 6. "Avoidable" assumes curtailment covers every peak hour, which requires forecasting them.</li>
+                            <li><strong>Capacity exposure</strong> = demand at system peak (IT nameplate &times; utilization &times; design-day PUE) &times; clearing price &times; 365. PJM: $325/MW-day, 2028/29 auction (<a href="https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2028-2029/2028-2029-bra-results-report.pdf" target="_blank" rel="noopener">PJM auction report</a>). MISO: $126.19/MW-day, 2026/27 North/Central annualized (<a href="https://www.misoenergy.org/meet-miso/media-center/2026---news-releases/misos-planning-resource-auction-shows-sufficient-capacity-for-coming-year" target="_blank" rel="noopener">MISO</a>). Actual charges depend on peak-load contribution, reserve requirements, zonal scaling, and retail contract terms.</li>
+                            <li><strong>Flexibility</strong>: curtailment is a share of maximum annual consumption (grid capacity request &times; 8,760 h), the same definition used by Norris et al., <a href="https://nicholasinstitute.duke.edu/publications/rethinking-load-growth" target="_blank" rel="noopener">Rethinking Load Growth</a> (Duke Nicholas Institute, 2025).</li>
+                            <li><strong>Peak timing</strong>: PJM identifies the five summer coincident peak hours (5CP), which utilities typically use to set each customer's capacity obligation (<a href="https://www.pjm.com/~/media/documents/manuals/m19.ashx" target="_blank" rel="noopener">PJM Manual 19</a>). ERCOT allocates transmission costs by 4CP (<a href="https://www.ercot.com/mktinfo/data_agg/4cp" target="_blank" rel="noopener">ERCOT</a>); <a href="https://capitol.texas.gov/tlodocs/89R/billtext/html/SB00006F.htm" target="_blank" rel="noopener">SB 6</a> requires Texas regulators to evaluate that method and amend their rules by December 31, 2026. "Avoidable" assumes curtailment covers every peak hour, which requires forecasting them.</li>
                             <li><strong>Voltage classes</strong> are typical ranges only. The actual point of interconnection depends on the local network and the utility's planning criteria.</li>
                             <li>Prices and figures current as of September 2026. This is a screening tool, not an interconnection or facilities study.</li>
                         </ul>
@@ -727,6 +727,6 @@
     </div>
 
     <!-- Script File -->
-    <script src="script.js?v=4"></script>
+    <script src="script.js?v=5"></script>
 </body>
 </html>
